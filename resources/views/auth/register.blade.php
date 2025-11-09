@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; text-align: center; }
+        .auth-form { max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .auth-form input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+        .auth-form button { background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; width: 100%; }
+        .demo-info { background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 5px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>📝 Регистрация</h1>
+    
+    <div class="demo-info">
+        <strong>Демо-версия:</strong> Для тестирования просто нажмите "Зарегистрироваться"
+    </div>
+    
+    <div class="auth-form">
+        <form method="POST" action="#">
+            @csrf
+            <input type="text" name="name" placeholder="Имя" value="Демо пользователь" readonly>
+            <input type="email" name="email" placeholder="Email" value="demo@example.com" readonly>
+            <input type="password" name="password" placeholder="Пароль" value="demo123" readonly>
+            <input type="password" name="password_confirmation" placeholder="Подтверждение пароля" value="demo123" readonly>
+            <button type="button" onclick="simulateRegister()">Зарегистрироваться</button>
+        </form>
+    </div>
+    
+    <br>
+    <p>Уже есть аккаунт? <a href="{{ route('login') }}">Войти</a></p>
+    <a href="/catalog">← Вернуться в каталог</a>
+
+    <script>
+        function simulateRegister() {
+            // В демо-версии просто редиректим
+            alert('Демо-регистрация выполнена!');
+            window.location.href = '/profile/orders';
+        }
+    </script>
+</body>
+</html>
